@@ -12,7 +12,7 @@
             {% for image in images %}
             <div class="col-md-4">
                 <div class="card" data-toggle="modal" data-target="#{{image.id}}">
-                    <img src="{{image.image.url}}" alt="Image" class="img-responsive" id='{{image.id}}'>
+                    <img src="{{image.image.url}}" alt="Image" class="img-responsive">
                     <hr>
                     <!-- The text field -->
                     <input type="text" value="{{image.image.url}}" id="{{image.id}}.url">
@@ -21,29 +21,32 @@
                     <button onclick="copy('{{image.id}}.url')">Copy</button>
                 </div>
             </div>
-            <div class="modal fade" id='{{image.id}}' tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-                <div class="modal-dialog modal-dialog-center" role="document" >
-                    <div class="modal-content">
+            <div class="modal fade" id='{{image.id}}' tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-center" role="document">
+                    <div class="modal-content modalcard">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"></h4>
+                            <h4 class="modal-title">{{image.name}}</h4>
                         </div>
                         <div class="modal-body">
-                            <p>One fine body&hellip;</p>
+                            <img src="{{image.image.url}}" alt="Image" class="img-responsive">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
+                </div>
             </div>
             {% endfor %}
         </div>
 
     </div>
 </div>
-
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% bootstrap_javascript %}
+{% endblock %}
 {% endblock %}
