@@ -7,16 +7,35 @@
 
 <div class="container-fluid">
     <div class="container">
-        <div class="card-columns">
+        <div class="row">
             {% for image in images %}
-            <div class="card" data-toggle="modal" data-target="#{{image.id}}">
-                <img src="{{image.image.url}}" alt="Image" class="card-img">
+            <div class="col-md-4" >
+                <div class="card" data-toggle="modal" data-target="#{{image.id}}" >
+                    <img src="{{image.image.url}}" alt="Image" class="img-responsive">
+                </div>
+
+                <div class="modal" tabindex="-1" id="{{image.id}}">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{image.name}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{image.image.url}}" alt="Image">
+                            </div>
+                            <div class="modal-footer">
+                                <h6>Category: {{image.category}}</h6>
+                                <h6>Location :{{image.location}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-            
             {% endfor %}
         </div>
+
     </div>
 </div>
 
