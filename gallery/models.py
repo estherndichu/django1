@@ -7,10 +7,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class location(models.Model):
-    locale = models.CharField(max_length=30)
+class Location(models.Model):
+    name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.locale
 
-        
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/')
+    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location)
