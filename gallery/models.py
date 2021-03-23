@@ -7,13 +7,26 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def save_category(self):
+        self.save()  
+
+    def delete_category(self):
+        self.delete()      
+
 class Location(models.Model):
     name = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.locale
+        return self.name
 
 class Image(models.Model):
     image = models.ImageField(upload_to='images/')
-    category = models.ForeignKey(Category)
-    location = models.ForeignKey(Location)
+    name = models.CharField(max_length=30)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    def save_image(self):
+        self.save()
