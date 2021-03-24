@@ -4,13 +4,48 @@
 #### By [Esther Ndichu](https://github.com/estherndichu)
 ## Description
 This gallery displays and summarises the life of Beau.
-## Setup/Installation Requirements
-* Open terminal on your computer.
-* cd the location where you want this project.
-* Follow this link to the project site : https://github.com/estherndichu/week3-ip
-* Click on the code dropdown menu, click on HTTPS and copy the link that appears.
-* Go back to terminal and run this command : git clone (link that you copied in step above)
-* Create your own github branch and edit the code as you wish.
+## Setup and Installation  
+To get the project .......  
+  
+##### Cloning the repository:  
+ ```bash 
+https://github.com/estherndichu/django1.git
+```
+##### Navigate into the folder and install requirements  
+ ```bash 
+cd django1 pip install -r requirements.txt 
+```
+##### Install and activate Virtual  
+ ```bash 
+- python3 -m venv virtual - source virtual/bin/activate  
+```  
+##### Install Dependencies  
+ ```bash 
+ pip install -r requirements.txt 
+```  
+ ##### Setup Database  
+  SetUp your database User,Password, Host then make migrate  
+ ```bash 
+python manage.py makemigrations pictures 
+ ``` 
+ Now Migrate  
+ ```bash 
+ python manage.py migrate 
+```
+##### Run the application  
+ ```bash 
+ python manage.py runserver 
+``` 
+##### Running the application  
+ ```bash 
+ python manage.py server 
+```
+##### Testing the application  
+ ```bash 
+ python manage.py test 
+```
+Open the application on your browser `127.0.0.1:8000`.  
+
 ## BDD/User Stories
 * User can view the whole gallery.
 * User is able to search for a category to view.
