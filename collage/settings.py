@@ -25,7 +25,9 @@ SECRET_KEY = 'pw-9g^rn+xy&938=6e^swei8s0vkl(^8rjk4=m0&)mj+@f%=f@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'bries.herokuapp.com',
+]
 
 
 # Application definition
