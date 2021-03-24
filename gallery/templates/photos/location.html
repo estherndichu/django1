@@ -4,6 +4,13 @@
 {% block content %}
 <div class="container-fluid">
     <h3 class="text-center">Welcome to Beau's Photo Gallery</h3>
+    <div class="col-md-5">
+        <span id="locations">
+            {% for location in locations %}
+            <a class="btn btn-outline-info btn-sm" id="btn" href="/location/{{location.name}}">{{location.name}}</a>
+            {%endfor%}
+        </span>
+    </div>
 </div>
 {% if location_images %}
 <div class="container-fluid">
