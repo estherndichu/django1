@@ -4,7 +4,8 @@ from django.conf import settings
 from . import views
 
 urlpatterns=[
-    url(r'^$',views.photos,name='photos')
+    url(r'^$',views.photos,name='photos'),
+    url(r'^location/(?P<location>\w+)/', views.image_location, name='location'),
 ]
 
 if settings.DEBUG:

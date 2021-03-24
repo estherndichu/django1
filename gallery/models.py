@@ -24,7 +24,12 @@ class Location(models.Model):
 
     def delete_location(self):
         self.delete()
-    
+        
+    @classmethod
+    def get_location(cls):
+        locations = Location.objects.all()
+        return locations
+
 
 class Image(models.Model):
     image = models.ImageField(upload_to='images/')
@@ -55,3 +60,8 @@ class Image(models.Model):
     def search_image(cls,category):
         images = cls.objects.filter(category__name__icontains=category)
         return images
+
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Image.objects.filter(location__name=location).all()
+        return image_location    

@@ -1,0 +1,56 @@
+{% extends 'photos/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container">
+    {% if images %}
+    <h2 class="text-center">Found {{ images|length }} images in '{{message}}' category</h2>
+    {% else %}
+    <h2 class="text-center"> Found 0 images for your search {{message}}</h2>
+
+    <a class="d-block mx-auto" href="/">
+        <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
+    </a>
+    {% endif %}
+
+    {% if images %}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                {% for image in location_images %}
+                <div class="col-md-4">
+                    <div class="card" data-toggle="modal" data-target="#{{image.id}}">
+                        <img src="{{image.image.url}}" alt="Image" class="img-responsive">
+                    </div>
+                </div>
+                <div class="modal fade" id='{{image.id}}' tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                        <div class="modal-content modalcard">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">{{image.name}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{image.image.url}}" alt="Image" class="img-responsive">
+                                <p>Location : {{image.location}}</p>
+                                <p>Category : {{image.category}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <p>{{image.description}}</p>
+                                <!-- The text field -->
+                                <input type="text" value="{{image.image.url}}" id="{{image.id}}.url">
+
+                                <!-- The button used to copy the text -->
+                                <button onclick="copy('{{image.id}}.url')">Copy</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endblock %}
