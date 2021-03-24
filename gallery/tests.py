@@ -24,4 +24,14 @@ class TestImage(TestCase):
     def test_delete_image(self):
         self.image_test.delete_image()
         images = Image.objects.all()
-        self.assertTrue(len(images) == 0)                                
+        self.assertTrue(len(images) == 0)
+        
+class TestLocation(TestCase):
+    def setUp(self):
+        self.location = Location(name='Moringa')
+        self.location.save_location()
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.location, Location))
+
+                        
