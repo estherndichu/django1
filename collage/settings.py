@@ -49,12 +49,6 @@ INSTALLED_APPS = [
 
 ]
 
-cloudinary.config( 
-  cloud_name='dhoooskwd', 
-  api_key='692433559184526', 
-  api_secret='Msdxc4T0q_anXqnAO1mq3eJYzn4', 
-)
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -140,5 +134,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+cloudinary.config( 
+  cloud_name='dhoooskwd', 
+  api_key='692433559184526', 
+  api_secret='Msdxc4T0q_anXqnAO1mq3eJYzn4', 
+)
