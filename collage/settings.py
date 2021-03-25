@@ -24,7 +24,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pw-9g^rn+xy&938=6e^swei8s0vkl(^8rjk4=m0&)mj+@f%=f@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,19 +85,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'collage.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'beau',
-#         'USER': 'esther',
-#     'PASSWORD':'brielle',
-#     }
-# }
 
 DATABASES = {
        'default': {
