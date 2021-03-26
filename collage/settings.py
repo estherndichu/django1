@@ -14,7 +14,6 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from decouple import config,Csv
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -52,9 +51,9 @@ INSTALLED_APPS = [
 ]
 
 cloudinary.config( 
-  cloud_name=config('CLOUDINARY_CLOUD_NAME'), 
-  api_key=config('CLOUDINARY_API_KEY'), 
-  api_secret=config('CLOUDINARY_API_SECRET'), 
+  cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'), 
+  api_key=os.environ.get('CLOUDINARY_API_KEY'), 
+  api_secret=os.environ.get('CLOUDINARY_API_SECRET'), 
 )
 
 MIDDLEWARE = [
@@ -154,5 +153,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
