@@ -5,9 +5,9 @@ from . import views
 import os
 
 urlpatterns=[
-    url(r'^$',views.photos,name='photos'),
-    url(r'^location/(?P<location>\w+)/', views.image_location, name='location'),
-    url(r'^search/', views.search_results, name='search'),
+    url('^$',views.photos,name='photos'),
+    url('^location/(?P<location>\w+)/', views.image_location, name='location'),
+    url('^search/', views.search_results, name='search'),
 ]
 
 if settings.DEBUG:

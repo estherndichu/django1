@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 ]
 
 cloudinary.config( 
-  cloud_name='dhoooskwd',
+  cloud_name='dhoooskwd', 
   api_key='692433559184526', 
   api_secret='Msdxc4T0q_anXqnAO1mq3eJYzn4', 
 )
@@ -153,3 +153,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
