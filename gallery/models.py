@@ -1,6 +1,7 @@
 from django.db import models
 import cloudinary
 from cloudinary.models import CloudinaryField
+import os
 
 # Create your models here.
 class Category(models.Model):
