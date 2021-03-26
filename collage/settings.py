@@ -51,9 +51,9 @@ INSTALLED_APPS = [
 ]
 
 cloudinary.config( 
-  cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'), 
-  api_key=os.environ.get('CLOUDINARY_API_KEY'), 
-  api_secret=os.environ.get('CLOUDINARY_API_SECRET'), 
+  cloud_name='dhoooskwd',
+  api_key='692433559184526', 
+  api_secret='Msdxc4T0q_anXqnAO1mq3eJYzn4', 
 )
 
 MIDDLEWARE = [
