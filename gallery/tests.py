@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Image, Category, Location
+import os
 # Create your tests here.
 
 class TestImage(TestCase):

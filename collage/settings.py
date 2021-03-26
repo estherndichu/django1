@@ -14,6 +14,7 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from decouple import config,Csv
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,7 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY='pw-9g^rn+xy&938=6e^swei8s0vkl(^8rjk4=m0&)mj+@f%=f@'
+SECRET_KEY = config('SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -48,6 +50,12 @@ INSTALLED_APPS = [
     'cloudinary',
 
 ]
+
+cloudinary.config( 
+  cloud_name=config('CLOUDINARY_CLOUD_NAME'), 
+  api_key=config('CLOUDINARY_API_KEY'), 
+  api_secret=config('CLOUDINARY_API_SECRET'), 
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,6 +88,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'collage.wsgi.application'
 
+
+# Database
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'beau',
+#         'USER': 'esther',
+#     'PASSWORD':'brielle',
+#     }
+# }
 
 DATABASES = {
        'default': {
@@ -134,9 +154,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-
-cloudinary.config( 
-  cloud_name='dhoooskwd', 
-  api_key='692433559184526', 
-  api_secret='Msdxc4T0q_anXqnAO1mq3eJYzn4', 
-)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
